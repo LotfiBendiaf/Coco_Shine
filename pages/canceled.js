@@ -20,7 +20,7 @@ const Canceled = () => {
         <p className="failIcon">
           <BsFillBagXFill />
         </p>
-        <h2>Sorry you weren't able to finalize your purchase</h2>
+        <h2>Sorry you weren&apos;t able to finalize your purchase</h2>
         <p className="description">
           If you have any questions, please email
           <a className="email" href="mailto:order@example.com">
