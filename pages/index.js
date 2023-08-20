@@ -3,14 +3,13 @@ import React from 'react';
 import { Product, FooterBanner, HeroBanner } from '../components';
 import { client } from '../lib/client';
 
-
 function Home({ products, bannerData }) {
   return (
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <div className='products-heading'>
-        <h2>Best Seller Products</h2>
-        <p>Speaker that has many variations passages</p>
+        <h2>Meilleures ventes</h2>
+        <p>Des produits specials pour vos animaux</p>
       </div>
 
       <div className="products-container">

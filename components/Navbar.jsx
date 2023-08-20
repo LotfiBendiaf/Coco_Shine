@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../Images/cocoshine-Logo.png' ;
 import { AiOutlineShopping } from 'react-icons/ai'
 
 import { Cart } from './';
@@ -10,8 +12,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <p className="logo">
-        <Link href="/">AB Hearing</Link>
+      <p >
+        <Link href="/">
+          <Image src={logo} alt="" width={300} height={55}/>
+        </Link>
       </p>
 
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>

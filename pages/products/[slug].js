@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
-
+import Image from 'next/image';
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
+
+import secure from '../../Images/paypal-payment.png' ;
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
@@ -49,11 +51,11 @@ const ProductDetails = ({ product, products }) => {
               (20)
             </p>
           </div>
-          <h4>Details: </h4>
+          <h4>Description : </h4>
           <p>{details}</p>
           <p className="price">${price}</p>
           <div className="quantity">
-            <h3>Quantity:</h3>
+            <h3>Quantité :</h3>
             <p className="quantity-desc">
               <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
               <span className="num">{qty}</span>
@@ -61,14 +63,15 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Ajouter au Panier</button>
+            <button type="button" className="buy-now" onClick={handleBuyNow}>Acheter Maintenant</button>
           </div>
+          <Image src={secure} alt="" width={300} height={55}/>
         </div>
       </div>
 
       <div className="maylike-products-wrapper">
-          <h2>You may also like</h2>
+          <h2>Articles qui peuvent vous interesser</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
               {products.map((item) => (
