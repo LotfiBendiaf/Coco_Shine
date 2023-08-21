@@ -12,9 +12,9 @@ import getStripe from '../lib/getStripe';
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import product from '@/sanity_ecommerce/schemas/product';
-
-// const { CLIENT_ID, APP_SECRET } = process.env;
-const client_id = 'AWZY0M6RZ5Q9vcyN0OJlxKryxo6OIQXgdLsJYYRiTH026e09UCRcj1vNQV5OK9k5U8fzcfzB9_-2cwcL' ;
+// const { CLIENT_ID } = process.env;
+// const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_ID = 'AWZY0M6RZ5Q9vcyN0OJlxKryxo6OIQXgdLsJYYRiTH026e09UCRcj1vNQV5OK9k5U8fzcfzB9_-2cwcL';
 
 const Cart = () => {
     
@@ -37,7 +37,7 @@ const Cart = () => {
           [{
               "unit_amount": 
               {
-                "currency_code": "USD",
+                "currency_code": "EUR",
                 "value": currency
               },
               "name": itemName,
@@ -53,8 +53,8 @@ const Cart = () => {
 
 
   const initialOptions = {
-    clientId: client_id,
-    currency: "USD",
+    clientId: CLIENT_ID,
+    currency: "EUR",
     intent: "capture",
 };
 
@@ -114,7 +114,7 @@ const Cart = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h4>{item.price}€</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
@@ -142,7 +142,7 @@ const Cart = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Total :</h3>
-              <h3>${totalPrice}</h3>
+              <h3>{totalPrice}€</h3>
             </div>
             <div className="btn-container">
               {/* <button type="button" className="btn" onClick={handleCheckout}>
@@ -161,10 +161,10 @@ const Cart = () => {
                       totalQuantities: totalQuantities,
                       amount: {
                         value: totalPrice,
-                        currency_code: "USD",
+                        currency_code: "EUR",
                         breakdown: {
                           item_total: {
-                            currency_code: "USD",
+                            currency_code: "EUR",
                             value: totalPrice,
                           },
                           
@@ -177,7 +177,7 @@ const Cart = () => {
                           description: item.name,
                           name: item.name,
                           unit_amount: {
-                            currency_code: "USD",
+                            currency_code: "EUR",
                             value: item.price,
                           },
                           quantity: item.quantity,
@@ -191,7 +191,7 @@ const Cart = () => {
                             selected: true,
                             amount: {
                                 value: "0.00",
-                                currency_code: "USD"
+                                currency_code: "EUR"
                             }
                           },
                           {
@@ -200,7 +200,7 @@ const Cart = () => {
                             selected: false,
                             amount: {
                                 value: "7.00",
-                                currency_code: "USD"
+                                currency_code: "EUR"
                             }
                           }
                   ]}
