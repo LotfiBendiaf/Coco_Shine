@@ -21,6 +21,9 @@ const ProductDetails = ({ product, products }) => {
 
   return (
     <div>
+      <Head>
+        <title>{`COCOSHINE : ${name}`}</title>
+      </Head>
       <div className="product-detail-container">
         <div>
           <div className="image-container">

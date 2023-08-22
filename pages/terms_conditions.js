@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from  "react" ;
-import Link from  "next/link";
+import Head from 'next/head';
+
 
 
 const Terms = () => {
@@ -7,6 +8,9 @@ const Terms = () => {
 
   return (
     <div className="terms">
+    <Head>
+        <title>Terms et Conditions</title>
+    </Head>
         <h1>Termes et conditions d utilisation</h1>
       <p>
       Bien sûr, voici quelques exemples concrets d informations que vous devriez inclure sur votre site e-commerce pour aborder les considérations de protection des consommateurs et légales, en français :
