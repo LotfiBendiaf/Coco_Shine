@@ -3,18 +3,13 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
-import toast from 'react-hot-toast';
 
 import { useStateContext } from '../context/StateContext';
-import { client, urlFor } from '../lib/client';
-import getStripe from '../lib/getStripe';
-
+import { urlFor } from '../lib/client';
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import product from '@/sanity_ecommerce/schemas/product';
-// const { CLIENT_ID } = process.env;
-// const CLIENT_ID = process.env.CLIENT_ID
-const CLIENT_ID = 'AWZY0M6RZ5Q9vcyN0OJlxKryxo6OIQXgdLsJYYRiTH026e09UCRcj1vNQV5OK9k5U8fzcfzB9_-2cwcL';
+
+const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 const Cart = () => {
     
@@ -22,62 +17,11 @@ const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
-  function PayPalItems() {
-
-        let items = []
-
-        cartItems.map((cartItem, index) => {
-        ++index;
-        let itemName = cartItem.name;
-        let price = cartItem.price;
-        let quantity = cartItem.quantity;
-        let currency = cartItem.price;
-
-        items.push(
-          [{
-              "unit_amount": 
-              {
-                "currency_code": "EUR",
-                "value": currency
-              },
-              "name": itemName,
-              "price": price,
-              "quantity": quantity
-            }]
-        )
-      });
-
-      return items;
-    }
-
-
-
   const initialOptions = {
     clientId: CLIENT_ID,
     currency: "EUR",
     intent: "capture",
 };
-
-
-  // const handleCheckout = async () => {
-  //   const stripe = await getStripe();
-
-  //   const response = await fetch('/api/stripe', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(cartItems),
-  //   });
-
-  //   if(response.statusCode === 500) return;
-    
-  //   const data = await response.json();
-
-  //   toast.loading('Redirecting...');
-
-  //   stripe.redirectToCheckout({ sessionId: data.id });
-  // }
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
