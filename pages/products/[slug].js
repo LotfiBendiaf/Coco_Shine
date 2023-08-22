@@ -13,6 +13,8 @@ const ProductDetails = ({ product, products }) => {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
+  console.log(urlFor(image))
+
   const handleBuyNow = () => {
     onAdd(product, qty);
 
@@ -27,7 +29,10 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src={urlFor(image && image[index])} className="product-detail-image" />
+            <Image src={image && image[index]} className="product-detail-image"
+            width={500}
+            height={500}	
+             />
           </div>
           <div className="small-images-container">
             {image?.map((item, i) => (

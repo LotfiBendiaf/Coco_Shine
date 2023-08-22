@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
+import Head from 'next/head';
+
 
 import { useStateContext } from '../context/StateContext';
 import { runFireworks } from '../lib/utils';
@@ -19,7 +21,7 @@ const Success = () => {
   return (
     <div className="success-wrapper">
       <Head>
-        <title>COCOSHINE vous remercie</title>
+        <title>Achat Finalisé</title>
       </Head>
       <div className="success">
         <p className="icon">

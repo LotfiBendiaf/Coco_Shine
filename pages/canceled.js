@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BsFillBagXFill } from 'react-icons/bs';
+import Head from 'next/head';
 
 import { useStateContext } from '../context/StateContext';
 
@@ -16,6 +17,9 @@ const Canceled = () => {
 
   return (
     <div className="success-wrapper">
+      <Head>
+          <title>Paiement annulé</title>
+      </Head>
       <div className="success">
         <p className="failIcon">
           <BsFillBagXFill />
