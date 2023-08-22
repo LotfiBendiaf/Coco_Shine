@@ -6,6 +6,7 @@ import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
+
 import secure from '../../Images/paypal-payment.png' ;
 
 const ProductDetails = ({ product, products }) => {
@@ -13,7 +14,21 @@ const ProductDetails = ({ product, products }) => {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
-  console.log(urlFor(image))
+
+  const baseUrl = "https://cdn.sanity.io"
+  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  const obj = urlFor(image).options.source
+  const imageUrls = []
+  obj.map((item) =>{
+    var img = item.asset._ref
+    img = img.replace('image-','');
+    img = img.replace('-jpg','.jpg');
+    img = img.replace('-png','.png');
+    img = img.replace('-webp','.webp');
+
+    imageUrls.push(`${baseUrl}/images/${projectId}/${dataset}/${img}`)
+  })
 
   const handleBuyNow = () => {
     onAdd(product, qty);
@@ -29,18 +44,23 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <Image src={image && image[index]} className="product-detail-image"
+            <Image src={imageUrls[0] && imageUrls[index] } className="product-detail-image"
+            loading="lazy"
             width={500}
-            height={500}	
+            height={500}
+            alt='Main Product Image'
              />
           </div>
           <div className="small-images-container">
-            {image?.map((item, i) => (
-              <img 
+            {imageUrls?.map((item, i) => (
+              <Image 
+                width={50}
+                height={50}
                 key={i}
-                src={urlFor(item)}
+                src={item}
                 className={i === index ? 'small-image selected-image' : 'small-image'}
                 onMouseEnter={() => setIndex(i)}
+                alt='Product small image'
               />
             ))}
           </div>
