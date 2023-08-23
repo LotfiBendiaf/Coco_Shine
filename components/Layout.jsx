@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         <meta property="og:url" content="https://cocoshine.vercel.app/" key="url" />
         <meta property="og:title" content="COCO SHINE" key="Title" />
         <meta property="og:type" content="website" key="type" />
-        {/* <meta property="og:image" content="https://renovsite-construction-reims.up.railway.app/static/Images/og_image.png" /> */}
+        <meta property="og:image" content="https://cocoshine.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ft0rxw5rs%2Fproduction%2F5142eff4910ea08d49b390fd322f798b01569050-1358x618.png&w=640&q=75" />
         <meta
           property="og:description"
           content="Coco Shine vous propose une sélection exquise de produits et accessoires pour animaux de compagnie. Découvrez une gamme soigneusement choisie de produits de haute qualité qui allient style et confort pour choyer vos fidèles compagnons. Faites de chaque instant avec votre animal une expérience éclatante grâce à Coco Shine." key="description" />
