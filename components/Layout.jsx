@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
       {/* Code Snippets */}
         <meta property="og:site_name" content="COCOSHINE" />
         <meta property="og:url" content="https://cocoshine.vercel.app/" key="url" />
-        <meta property="og:title" content="COCO SHINE" key="Title" />
+        <meta property="og:title" content="COCO SHINE : Vente de produits et accessoires pour vos animaux de compagnie" key="Title" />
         <meta property="og:type" content="website" key="type" />
         <meta property="og:image" content="https://cocoshine.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ft0rxw5rs%2Fproduction%2F5142eff4910ea08d49b390fd322f798b01569050-1358x618.png&w=640&q=75" />
         <meta
