@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 
+import Image from 'next/image';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 
@@ -17,6 +18,19 @@ const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
+  const baseUrl = "https://cdn.sanity.io"
+  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  // const obj = urlFor(image).options.source
+  const imageUrls = []
+  cartItems.map((item) =>{
+    urlFor(item?.image).options.source[0].asset._ref = urlFor(item?.image).options.source[0].asset._ref.replace('image-','');
+    urlFor(item?.image).options.source[0].asset._ref = urlFor(item?.image).options.source[0].asset._ref.replace('-jpg','.jpg');
+    urlFor(item?.image).options.source[0].asset._ref = urlFor(item?.image).options.source[0].asset._ref.replace('-png','.png');
+    urlFor(item?.image).options.source[0].asset._ref = urlFor(item?.image).options.source[0].asset._ref.replace('-webp','.webp');
+
+  })
+
   const initialOptions = {
     clientId: CLIENT_ID,
     currency: "EUR",
@@ -24,8 +38,8 @@ const Cart = () => {
 };
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
+    <div className="cart-wrapper noSelect" ref={cartRef}>
+      <div className="cart-container noSelect">
         <button
         type="button"
         className="cart-heading"
@@ -54,7 +68,12 @@ const Cart = () => {
         <div className="product-container">
           {cartItems.length >= 1 && cartItems.map((item) => (
             <div className="product" key={item._id}>
-              <img src={urlFor(item?.image[0])} className="cart-product-image" />
+              <Image 
+                src={`${baseUrl}/images/${projectId}/${dataset}/${urlFor(item?.image).options.source[0].asset._ref}`} 
+                className="cart-product-image" 
+                width={100}
+                height={100}
+              />
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
@@ -62,7 +81,7 @@ const Cart = () => {
                 </div>
                 <div className="flex bottom">
                   <div>
-                  <p className="quantity-desc">
+                  <p className="quantity-desc noSelect">
                     <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
                     <AiOutlineMinus />
                     </span>

@@ -2,14 +2,25 @@ import React from 'react'
 import Link from 'next/link'
 
 import { urlFor } from '../lib/client';
+import Image from 'next/image';
+
+const baseUrl = "https://cdn.sanity.io"
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 const Product = ({product :{slug, name, image, price}}) => {
+  var img = urlFor(image[0]).options.source.asset._ref;
+  img = img.replace('image-','')
+  img = img.replace('-jpg','.jpg');
+  img = img.replace('-png','.png');
+  img = img.replace('-webp','.webp');
+  const imageUrl = (`${baseUrl}/images/${projectId}/${dataset}/${img}`)
   return (
     <div>
     <Link href={`/products/${slug.current}`}>
       <div className="product-card">
-        <img 
-          src={urlFor(image && image[0])}
+        <Image 
+          src={imageUrl}
           width={250}
           height={250}
           className="product-image"
