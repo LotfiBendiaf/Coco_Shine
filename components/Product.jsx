@@ -25,6 +25,7 @@ const Product = ({product :{slug, name, image, price}}) => {
           height={250}
           className="product-image"
           alt='Product Image'
+          loading='lazy'
         />
         <p className="product-name">{name}</p>
         <p className="product-price">{price}€</p>

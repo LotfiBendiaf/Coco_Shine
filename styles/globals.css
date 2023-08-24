@@ -49,6 +49,16 @@ body, * {
   width: 0px;
 }
 
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 a {
   color: inherit;
   font-size: 12px;
@@ -229,7 +239,6 @@ width: 100%;
   top: -15%;
   right: 3%;
   width: 500px;
-  height: auto;
   animation: transparency 3s infinite alternate;
   z-index: 0;
 }
@@ -253,6 +262,8 @@ flex-direction: column;
   color: var(--mainTextColor);
   font-weight: 100;
 text-align: end;
+font-weight: bold;
+
 }
 .desc h5{
   margin-bottom: 12px;
@@ -323,7 +334,6 @@ text-align: end;
   position: absolute;
   top: 55%;
   width: 300px;
-  height: 300px;
   right: 0;
 
 }
