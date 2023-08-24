@@ -95,7 +95,7 @@ const ProductDetails = ({ product, products }) => {
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Ajouter au Panier</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Acheter Maintenant</button>
           </div>
-          <Image src={secure} alt="" width={300} height={55}/>
+          <Image src={secure} alt="Payment Methods" width={300} height={55}/>
         </div>
       </div>
 

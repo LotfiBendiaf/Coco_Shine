@@ -12,11 +12,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <p >
         <Link href="/">
-          <Image src={logo} alt="" width={300} height={55}/>
+          <Image src={logo} alt="Coco Shine Logo" width={300} height={55}/>
         </Link>
-      </p>
 
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
         <AiOutlineShopping />

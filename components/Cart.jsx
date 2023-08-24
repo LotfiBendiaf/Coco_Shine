@@ -73,6 +73,7 @@ const Cart = () => {
                 className="cart-product-image" 
                 width={100}
                 height={100}
+                alt='Cart Product'
               />
               <div className="item-desc">
                 <div className="flex top">

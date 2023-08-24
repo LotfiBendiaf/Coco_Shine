@@ -37,6 +37,7 @@ const FooterBanner = ({ footerBanner: { discount, largeText1, largeText2, saleTi
           src={imageUrl} className="footer-banner-image"
           width={300}
           height={300}
+          alt='Footer Banner Image'
         />
       </div>
     </div>

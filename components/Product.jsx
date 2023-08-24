@@ -24,6 +24,7 @@ const Product = ({product :{slug, name, image, price}}) => {
           width={250}
           height={250}
           className="product-image"
+          alt='Product Image'
         />
         <p className="product-name">{name}</p>
         <p className="product-price">{price}€</p>
