@@ -38,6 +38,7 @@ const FooterBanner = ({ footerBanner: { discount, largeText1, largeText2, saleTi
           width={300}
           height={300}
           alt='Footer Banner Image'
+          loading='lazy'
         />
       </div>
     </div>
