@@ -21,21 +21,17 @@ const HeroBanner = ({ heroBanner }) => {
         <p className="beats-solo">{heroBanner.smallText}</p>
         <h3>{heroBanner.midText}</h3>
         <h1>{heroBanner.largeText1}</h1>
-        <Image src={imageUrl} alt="Banner image"  
-        className='hero-banner-image' 
-        width={500}
-        height={500}/>
-
-        <div>
-          <Link href={`/products/${heroBanner.product}`}>
-            <button type="button">{heroBanner.buttonText}</button>
-          </Link>
-          <div className="desc">
-            <h5>Description</h5>
-            <p>{heroBanner.desc}</p>
-          </div>
-        </div>
-
+      </div>
+      <Image id='test' src={imageUrl} alt="Banner image"  
+      className='hero-banner-image' 
+      width={500}
+      height={500}/>
+      <Link href={`/products/${heroBanner.product}`}>
+        <button type="button">{heroBanner.buttonText}</button>
+      </Link>
+      <div id='test' className="desc">
+        <h5>Description</h5>
+        <p>{heroBanner.desc}</p>
       </div>
     </div>
 
