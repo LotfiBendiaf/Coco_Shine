@@ -45,7 +45,6 @@ const ProductDetails = ({ product, products }) => {
         <div>
           <div className="image-container">
             <Image src={imageUrls[0] && imageUrls[index] } className="product-detail-image"
-            loading="lazy"
             width={500}
             height={500}
             alt='Main Product Image'
@@ -61,6 +60,7 @@ const ProductDetails = ({ product, products }) => {
                 className={i === index ? 'small-image selected-image' : 'small-image'}
                 onMouseEnter={() => setIndex(i)}
                 alt='Product small image'
+                loading='lazy'
               />
             ))}
           </div>
@@ -95,7 +95,7 @@ const ProductDetails = ({ product, products }) => {
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Ajouter au Panier</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Acheter Maintenant</button>
           </div>
-          <Image src={secure} alt="Payment Methods" width={300} height={55}/>
+          <Image src={secure} alt="Payment Methods" width={300} height={55} loading='lazy' />
         </div>
       </div>
 
