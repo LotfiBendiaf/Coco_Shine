@@ -1,8 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-
+import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { urlFor } from '../lib/client';
 import Image from 'next/image';
+
 
 const baseUrl = "https://cdn.sanity.io"
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
@@ -28,6 +29,18 @@ const Product = ({product :{slug, name, image, price}}) => {
           loading='lazy'
         />
         <p className="product-name">{name}</p>
+        <div className="reviews">
+            <div>
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiOutlineStar />
+            </div>
+            <p>
+              (20)
+            </p>
+          </div>
         <p className="product-price">{price}€</p>
       </div>
     </Link>
