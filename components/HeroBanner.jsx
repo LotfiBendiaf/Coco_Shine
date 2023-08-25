@@ -25,7 +25,8 @@ const HeroBanner = ({ heroBanner }) => {
       <Image src={imageUrl} alt="Banner image"  
       className='hero-banner-image' 
       width={500}
-      height={500}/>
+      height={500}
+      loading='eager'/>
       <Link href={`/products/${heroBanner.product}`}>
         <button type="button">{heroBanner.buttonText}</button>
       </Link>
